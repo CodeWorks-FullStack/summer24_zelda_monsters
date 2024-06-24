@@ -19,6 +19,7 @@ class MonstersService {
     // AppState.monsters = response.data.data
 
     // Convert all of the Plain Old JavaScript Objects into Monster Objects
+    // map converts an array into a new data type and returns it
     const monsters = response.data.data.map((monsterPOJO) => new Monster(monsterPOJO))
 
     AppState.monsters = monsters
