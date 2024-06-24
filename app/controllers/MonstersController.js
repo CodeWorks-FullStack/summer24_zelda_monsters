@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { monstersService } from "../services/MonstersService.js";
+import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
 export class MonstersController {
@@ -24,9 +25,17 @@ export class MonstersController {
     console.log(myPromise);
   }
 
-  getMonsters() {
-    console.log('getting monsters 📡🧌');
-    monstersService.getMonsters()
+  async getMonsters() {
+    // try will attempt to run the code inisde of the first codeblock
+    try {
+      console.log('getting monsters 📡🧌');
+      await monstersService.getMonsters()
+      Pop.success("WE GOT THE MONSTERS, BABY")
+      //if an error is thrown by the try, we catch it here and run other code 
+    } catch (error) {
+      Pop.error(error)
+      console.error("TRIED TO GET THE MONSTERS AND FAILED", error)
+    }
   }
 
   drawMonsters() {
