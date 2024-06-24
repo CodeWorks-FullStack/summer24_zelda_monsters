@@ -5,6 +5,8 @@ export class Monster {
     this.description = data.description
     this.imgUrl = data.image // we can rename properties on our own objects
     this.isDLC = data.dlc
+    // The or operator checks if the left-hand side is falsy, and defaults to the right if it is
+    // an empty array is easier to work with instead of null, since forEach throws error if the property is null
     this.drops = data.drops || []
     this.commonLocations = data.common_locations || []
   }

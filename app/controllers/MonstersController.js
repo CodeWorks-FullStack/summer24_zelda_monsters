@@ -9,15 +9,16 @@ export class MonstersController {
     AppState.on('monsters', this.drawMonsters)
 
     console.log('Loaded Monsters Controller');
-    this.getMonsters()
     // NOTE asynchronous code allows the code to pause in the method below, but continue running other actions outside of that
+    this.getMonsters()
     // this.testPromise()
   }
+  // a method (or function) must be async in order to use await
   async testPromise() {
-    // When we await this promise, the code in this method stops running, and will only continue after the promise has been resolved
+    // When we await this promise, the code in this method stops running on the following line, and will only continue after the promise has been resolved
     const myPromise = await new Promise((resolve, reject) => {
+      // NOTE this promise resolves in 3 seconds
       setTimeout(() => {
-        // NOTE this promise resolves in 3 seconds
         resolve("Promise has been resolved");
       }, 3000);
     });
@@ -27,12 +28,13 @@ export class MonstersController {
 
   // NOTE best practice any network request should be using a try/catch
   async getMonsters() {
-    // try will attempt to run the code inisde of the first codeblock
+    // try will attempt to run the code inside of the first codeblock
     try {
       console.log('getting monsters 📡🧌');
       await monstersService.getMonsters()
       Pop.success("WE GOT THE MONSTERS, BABY")
-      //if an error is thrown by the try, we catch it here and run other code 
+
+      //if an error is thrown by the try, we catch it here and run code inside of this codeblock 
     } catch (error) {
       // Alert the user that something went wrong
       Pop.error(error)
