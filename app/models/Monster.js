@@ -8,6 +8,22 @@ export class Monster {
     this.drops = data.drops
     this.commonLocations = data.common_locations
   }
+
+  get cardHTMLTemplate() {
+    return `
+    <div class="col-6 mb-3">
+      <div class="card">
+        <img src="${this.imgUrl}" class="card-img-top"
+          alt="${this.name}">
+        <div class="card-body">
+          <p class="card-title fs-5 fw-bold">Dinraal</p>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+    </div>
+    `
+  }
 }
 
 // NOTE copy and pasted from console
