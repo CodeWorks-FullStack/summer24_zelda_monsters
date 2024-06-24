@@ -25,6 +25,7 @@ export class MonstersController {
     console.log(myPromise);
   }
 
+  // NOTE best practice any network request should be using a try/catch
   async getMonsters() {
     // try will attempt to run the code inisde of the first codeblock
     try {
@@ -33,7 +34,9 @@ export class MonstersController {
       Pop.success("WE GOT THE MONSTERS, BABY")
       //if an error is thrown by the try, we catch it here and run other code 
     } catch (error) {
+      // Alert the user that something went wrong
       Pop.error(error)
+      // Alert the developer that something went wrong
       console.error("TRIED TO GET THE MONSTERS AND FAILED", error)
     }
   }

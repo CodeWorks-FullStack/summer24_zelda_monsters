@@ -5,8 +5,8 @@ export class Monster {
     this.description = data.description
     this.imgUrl = data.image // we can rename properties on our own objects
     this.isDLC = data.dlc
-    this.drops = data.drops
-    this.commonLocations = data.common_locations
+    this.drops = data.drops || []
+    this.commonLocations = data.common_locations || []
   }
 
   get cardHTMLTemplate() {
@@ -18,10 +18,32 @@ export class Monster {
         <div class="card-body">
           <p class="card-title fs-5 fw-bold text-capitalize">${this.name}</p>
           <p class="card-text">${this.description}</p>
+          <div>
+            <p>Locations</p>
+            <ul>
+              ${this.listOfLocations}
+            </ul>
+            <p>Drops</p>
+            <ul>
+              ${this.listOfDrops}
+            </ul>
+          </div> 
         </div>
       </div>
     </div>
     `
+  }
+
+  get listOfLocations() {
+    // if (this.commonLocations == null) return 'No Locations'
+    let innerHTMLString = ''
+    this.commonLocations.forEach((location) => innerHTMLString += `<li>${location}</li>`)
+    return innerHTMLString
+  }
+  get listOfDrops() {
+    let innerHTMLString = ''
+    this.drops.forEach((drop) => innerHTMLString += `<li>${drop}</li>`)
+    return innerHTMLString
   }
 }
 
