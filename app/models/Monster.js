@@ -10,16 +10,17 @@ export class Monster {
   }
 }
 
-const rawMonsterDataFromAPI = {
-  "category": "monsters", // we don't save this!
-  "common_locations": [
-    "Eldin Mountains",
-    "Tabantha Frontier"
-  ],
-  "description": "A spirit of fire has taken the form of this giant dragon. Making its home in the Eldin region, it's said to have served the Spring of Power since ancient times. An old saying goes, \"The dragon ascends to the heavens as the sun begins to set,\" but nobody has witnessed this in the current age. The flames that coat its body make it dangerous to get near, but Dinraal bears no ill will toward people.",
-  "dlc": false,
-  "drops": null,
-  "id": 153,
-  "image": "https://botw-compendium.herokuapp.com/api/v3/compendium/entry/dinraal/image",
-  "name": "dinraal"
-}
+// NOTE copy and pasted from console
+// const rawMonsterDataFromAPI = {
+//   "category": "monsters", // we don't save this!
+//   "common_locations": [
+//     "Eldin Mountains",
+//     "Tabantha Frontier"
+//   ],
+//   "description": "A spirit of fire has taken the form of this giant dragon. Making its home in the Eldin region, it's said to have served the Spring of Power since ancient times. An old saying goes, \"The dragon ascends to the heavens as the sun begins to set,\" but nobody has witnessed this in the current age. The flames that coat its body make it dangerous to get near, but Dinraal bears no ill will toward people.",
+//   "dlc": false,
+//   "drops": null,
+//   "id": 153,
+//   "image": "https://botw-compendium.herokuapp.com/api/v3/compendium/entry/dinraal/image",
+//   "name": "dinraal"
+// }
