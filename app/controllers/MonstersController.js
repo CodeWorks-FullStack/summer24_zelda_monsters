@@ -1,3 +1,5 @@
+import { monstersService } from "../services/MonstersService.js";
+
 export class MonstersController {
   constructor() {
     console.log('Loaded Monsters Controller');
@@ -6,5 +8,6 @@ export class MonstersController {
 
   getMonsters() {
     console.log('getting monsters 📡🧌');
+    monstersService.getMonsters()
   }
 }
