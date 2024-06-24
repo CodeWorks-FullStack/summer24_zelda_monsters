@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js";
+import { Monster } from "../models/Monster.js";
 
 class MonstersService {
   // NOTE every method that requests data from an API should be async
@@ -10,8 +12,17 @@ class MonstersService {
     const response = await axios.get('https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters')
 
     // response from API, we really care about the response body (the data), and that is stored in response.data
-    // NOTE ALWAYS LOOK AT THE RESPONSE!!!!!
+    // NOTE ALWAYS LOOK AT THE RESPONSE TO SEE WHERE THE DATA WE CARE ABOUT IS STORED!!!!!
     console.log('🗞️🐕 <---------', response.data);
+
+    // NOTE storing POJOs in AppState, which is bad
+    // AppState.monsters = response.data.data
+
+    // Convert all of the Plain Old JavaScript Objects into Monster Objects
+    const monsters = response.data.data.map((monsterPOJO) => new Monster(monsterPOJO))
+
+    AppState.monsters = monsters
+    console.log('🧌', AppState.monsters);
   }
 }
 
