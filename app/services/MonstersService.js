@@ -9,7 +9,7 @@ class MonstersService {
     // 🐕 ---------> Zelda API
     // NOTE axios brought in through CDN script tag, you can ignore red squiggles from it
     // @ts-ignore
-    const response = await axios.get('https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters')
+    const response = await axios.get('https://botw-compendium.herokuapp.com/api/v3/compendium/categorymonsters')
 
     // response from API, we really care about the response body (the data), and that is stored in response.data
     // NOTE ALWAYS LOOK AT THE RESPONSE TO SEE WHERE THE DATA WE CARE ABOUT IS STORED!!!!!
